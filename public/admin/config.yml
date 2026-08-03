@@ -8,7 +8,7 @@
 
 backend:
   name: github
-  repo: your-github-username/raship-website
+  repo: khadkaraship/my-website
   branch: main
   # Needed only for signing in from the LIVE site (editing on your own computer
   # works without it). Uncomment and point it at your own copy of
