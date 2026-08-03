@@ -1,0 +1,76 @@
+---
+import { site, fontsHref } from '../lib/site';
+import SiteNav from '../components/SiteNav.astro';
+import ContactBand from '../components/ContactBand.astro';
+import '../styles/design-system.css';
+import '../styles/site.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} — ${site.role}`,
+  description = site.tagline,
+} = Astro.props;
+
+const t = site.theme;
+
+/**
+ * Brand overrides for the design-system tokens.
+ * The accent ramp is derived from the single accent colour in site.yaml, so
+ * changing one line there re-tints buttons, links, tags and the dark band
+ * together instead of leaving nine hex codes out of step.
+ */
+const themeCss = `:root{
+  --color-bg:${t.background};
+  --color-text:${t.text};
+  --color-accent:${t.accent};
+  --color-divider:color-mix(in srgb, ${t.text} 16%, transparent);
+  --font-heading:"${t.headingFont}", system-ui, sans-serif;
+  --font-body:"${t.bodyFont}", system-ui, sans-serif;
+  --color-accent-100:color-mix(in oklab, var(--color-accent) 10%, #fff);
+  --color-accent-200:color-mix(in oklab, var(--color-accent) 24%, #fff);
+  --color-accent-300:color-mix(in oklab, var(--color-accent) 42%, #fff);
+  --color-accent-400:color-mix(in oklab, var(--color-accent) 62%, #fff);
+  --color-accent-500:color-mix(in oklab, var(--color-accent) 82%, #fff);
+  --color-accent-600:var(--color-accent);
+  --color-accent-700:color-mix(in oklab, var(--color-accent) 80%, #000);
+  --color-accent-800:color-mix(in oklab, var(--color-accent) 56%, #000);
+  --color-accent-900:${t.accentDark};
+}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href={fontsHref} rel="stylesheet" />
+    <style is:inline set:html={themeCss}></style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <SiteNav />
+      <main id="main">
+        <slot />
+      </main>
+      <ContactBand />
+      <footer class="site-footer">
+        <span>{site.footer.left}</span>
+        <span>{site.footer.right}</span>
+      </footer>
+    </div>
+  </body>
+</html>

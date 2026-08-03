@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import Frame from '../components/Frame.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { site } from '../lib/site';
+import { allProjects, featuredProjects } from '../lib/projects';
+
+const projects = await allProjects();
+const featured = featuredProjects(projects);
+
+/** `value: auto` in site.yaml means "count the projects for me". */
+const stats = site.stats.items.map((item) => ({
+  ...item,
+  value: String(item.value).toLowerCase() === 'auto' ? String(projects.length) : String(item.value),
+}));
+
+const { hero, experience, expertise, selectedWork } = site;
+---
+
+<Base>
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-copy">
+      {hero.eyebrow && <p class="eyebrow">{hero.eyebrow}</p>}
+      <h1 class="hero-title">
+        {hero.headingLines.map((line, i) => (<>{i > 0 && <br />}{line}</>))}
+      </h1>
+      {hero.intro && <p class="hero-intro">{hero.intro}</p>}
+      <div class="hero-actions">
+        {
+          hero.primaryButton.show && hero.primaryButton.label && (
+            <a class="btn btn-primary" href={hero.primaryButton.href}>
+              {hero.primaryButton.label}
+            </a>
+          )
+        }
+        {
+          hero.secondaryButton.show && hero.secondaryButton.label && (
+            <a class="btn btn-secondary" href={hero.secondaryButton.href}>
+              {hero.secondaryButton.label}
+            </a>
+          )
+        }
+      </div>
+    </div>
+    <Frame
+      class="hero-media"
+      src={hero.portrait}
+      alt={hero.portraitAlt}
+      caption="Add your portrait — see EDITING.md"
+      loading="eager"
+    />
+  </section>
+
+  <!-- ── Stats ────────────────────────────────────────────────────────── -->
+  {
+    site.stats.show && stats.length > 0 && (
+      <>
+        <hr class="rule" />
+        <div class="stats">
+          {stats.map((stat) => (
+            <span>
+              <strong>{stat.value}</strong>
+              {stat.label}
+            </span>
+          ))}
+        </div>
+      </>
+    )
+  }
+  <hr class="rule" />
+
+  <!-- ── 01 Experience ────────────────────────────────────────────────── -->
+  {
+    experience.show && experience.items.length > 0 && (
+      <section class="section">
+        <p class="eyebrow">
+          {experience.number} — {experience.kicker}
+        </p>
+        <h2 class="section-title">{experience.heading}</h2>
+        <div class="timeline">
+          {experience.items.map((item) => (
+            <>
+              <div class="timeline-period">
+                {item.period}
+                {item.periodNote && <span>{item.periodNote}</span>}
+              </div>
+              <div class="timeline-body">
+                <div class="timeline-title">{item.title}</div>
+                <p class="timeline-desc">
+                  {item.description}
+                  {item.note && <span class="timeline-note"> {item.note}</span>}
+                </p>
+              </div>
+            </>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ── 02 Expertise ─────────────────────────────────────────────────── -->
+  {
+    expertise.show && expertise.cards.length > 0 && (
+      <>
+        <hr class="rule" />
+        <section class="section section-alt">
+          <p class="eyebrow">
+            {expertise.number} — {expertise.kicker}
+          </p>
+          <h2 class="section-title">{expertise.heading}</h2>
+          <div class="expertise-grid">
+            {expertise.cards.map((card, i) => (
+              <div class="card blueprint">
+                <i class="corner tl" />
+                <i class="corner tr" />
+                <i class="corner bl" />
+                <i class="corner br" />
+                <span class="card-kicker">{String(i + 1).padStart(2, '0')}</span>
+                <div class="card-title">{card.title}</div>
+                <p class="card-body">{card.description}</p>
+              </div>
+            ))}
+          </div>
+          {expertise.tools.length > 0 && (
+            <p class="tools-line">
+              <span class="tools-label">{expertise.toolsLabel}</span>
+              {expertise.tools.join(' · ')}
+            </p>
+          )}
+        </section>
+      </>
+    )
+  }
+
+  <!-- ── 03 Selected work ─────────────────────────────────────────────── -->
+  {
+    selectedWork.show && featured.length > 0 && (
+      <>
+        <hr class="rule" />
+        <section class="section">
+          <div class="work-head">
+            <div>
+              <p class="eyebrow">
+                {selectedWork.number} — {selectedWork.kicker}
+              </p>
+              <h2 class="section-title section-title-tight">{selectedWork.heading}</h2>
+            </div>
+            <a class="btn btn-secondary" href="/portfolio">
+              {selectedWork.linkLabel}
+            </a>
+          </div>
+          <div
+            class="work-grid"
+            style={`--cols:${Math.min(featured.length, 4)};--cols-md:${Math.min(featured.length, 2)}`}
+          >
+            {featured.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </section>
+      </>
+    )
+  }
+</Base>

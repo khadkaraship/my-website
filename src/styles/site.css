@@ -1,0 +1,437 @@
+/* Page layout for the portfolio site.
+
+   The original design switched layouts by measuring the window in JavaScript.
+   Here the same breakpoints are plain CSS media queries, so the correct layout
+   is in the HTML from the first paint and the site works with JS disabled.
+
+   Breakpoints:  < 760px = phone      760–1079px = tablet      >= 1080px = desktop */
+
+:root {
+  --gutter: 48px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--color-text);
+}
+a { color: var(--color-accent-700); }
+a:hover { color: var(--color-accent-900); }
+
+.shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+
+.rule { height: 1px; background: var(--color-divider); border: 0; margin: 0; }
+
+.eyebrow {
+  font: 500 11px/1 var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin: 0;
+}
+
+.section { padding: 56px var(--gutter); }
+.section-alt { background: var(--color-neutral-100); }
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.05;
+  margin: 10px 0 40px;
+}
+.section-title-tight { margin-bottom: 0; }
+
+/* ── skip link ──────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* ── navigation ─────────────────────────────────────────────────────────── */
+.site-nav {
+  border-bottom: 1px solid var(--color-divider);
+  padding: 14px var(--gutter);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: 5;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.site-nav .nav-brand { text-decoration: none; color: var(--color-text); }
+.site-nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.site-nav-links .btn { padding: 8px 16px; font-size: 13px; }
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 56px;
+  padding: 64px var(--gutter) 56px;
+  align-items: center;
+}
+.hero-copy { display: flex; flex-direction: column; gap: 20px; }
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 76px;
+  line-height: 0.94;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.hero-intro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-neutral-800);
+  margin: 0;
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+.hero-actions { display: flex; gap: 12px; padding-top: 4px; flex-wrap: wrap; }
+.hero-actions .btn { padding: 11px 22px; }
+.hero-media { aspect-ratio: 4 / 5; }
+
+/* ── stats strip ────────────────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px var(--gutter);
+  gap: 56px;
+  font-size: 13px;
+  color: var(--color-neutral-700);
+}
+.stats strong {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--color-text);
+  margin-right: 8px;
+}
+
+/* ── experience timeline ────────────────────────────────────────────────── */
+/* The rule between the years and the descriptions is the left border of each
+   body cell — the cells stack flush, so the borders read as one continuous
+   line however many entries there are. */
+.timeline {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  column-gap: 28px;
+}
+.timeline-period {
+  grid-column: 1;
+  text-align: right;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  color: var(--color-accent-700);
+}
+.timeline-period span {
+  display: block;
+  font-size: 12px;
+  font-family: var(--font-body);
+  color: var(--color-neutral-600);
+}
+.timeline-body {
+  grid-column: 2;
+  padding-bottom: 32px;
+  padding-left: 28px;
+  border-left: 1px solid var(--color-divider);
+}
+.timeline-body:last-child { padding-bottom: 0; }
+.timeline-title { font-family: var(--font-heading); font-size: 22px; }
+.timeline-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-neutral-800);
+  margin: 6px 0 0;
+}
+.timeline-note { color: var(--color-neutral-600); }
+
+/* ── expertise ──────────────────────────────────────────────────────────── */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.expertise-grid .card { padding: 22px; gap: 10px; }
+.expertise-grid .card-title { font-size: 20px; }
+.tools-line {
+  margin: 28px 0 0;
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--color-neutral-700);
+}
+.tools-label {
+  font-family: var(--font-heading);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--color-neutral-600);
+  margin-right: 8px;
+}
+
+/* ── project cards ──────────────────────────────────────────────────────── */
+.work-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.work-head .btn { padding: 10px 18px; }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 28px;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 28px;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+.project-card .frame { aspect-ratio: 16 / 10; }
+.project-card .tag { align-self: flex-start; }
+.project-name { font-family: var(--font-heading); font-size: 21px; line-height: 1.15; }
+.project-meta { font-size: 13px; line-height: 1.6; color: var(--color-neutral-700); margin: 0; }
+.project-card:hover .project-name { color: var(--color-accent-700); }
+
+.portfolio-intro {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-neutral-700);
+  margin: 0 0 32px;
+}
+.chips { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+.chips .tag { padding: 6px 14px; font-size: 12px; text-decoration: none; }
+
+.empty-note {
+  padding: 40px 0;
+  color: var(--color-neutral-600);
+  font-size: 14px;
+}
+
+/* ── project detail ─────────────────────────────────────────────────────── */
+.detail { padding: 40px var(--gutter) 56px; }
+.detail-back { margin-bottom: 28px; }
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 48px;
+  align-items: start;
+}
+.detail-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.02;
+  margin: 16px 0 10px;
+}
+.detail-meta { font-size: 15px; line-height: 1.6; color: var(--color-neutral-700); margin: 0 0 28px; }
+.detail-hero { aspect-ratio: 16 / 9; }
+/* The extra photos lay themselves out around however many there are: a lone
+   photo gets the full width at the same proportions as the cover, two or more
+   pair up. No empty frames are ever rendered — see projects/[slug].astro. */
+.detail-figs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.detail-figs .frame { aspect-ratio: 4 / 3; }
+.detail-figs[data-count='1'] { grid-template-columns: minmax(0, 1fr); }
+.detail-figs[data-count='1'] .frame { aspect-ratio: 16 / 9; }
+.detail-fig figcaption { margin-top: 10px; }
+.detail-notes {
+  margin-top: 28px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--color-neutral-800);
+  max-width: 68ch;
+}
+.detail-notes :where(h2, h3) { font-family: var(--font-heading); margin: 22px 0 8px; }
+.detail-side {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 96px;
+}
+.side-label {
+  font: 500 10px var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+}
+.side-value { font-family: var(--font-heading); font-size: 20px; }
+.side-list {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--color-neutral-800);
+  margin: 0;
+  padding-left: 16px;
+}
+.side-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.detail-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-divider);
+}
+
+/* ── contact band ───────────────────────────────────────────────────────── */
+.contact {
+  background: var(--color-accent-900);
+  color: var(--color-neutral-100);
+  padding: 56px var(--gutter);
+  display: grid;
+  grid-template-columns: 1.3fr minmax(0, 1fr);
+  gap: 36px;
+}
+.contact .eyebrow { color: var(--color-accent-300); }
+.contact-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.05;
+  margin: 10px 0 14px;
+  color: #fff;
+}
+.contact-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-accent-200);
+  margin: 0;
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+.contact-details { display: flex; flex-direction: column; gap: 16px; font-size: 15px; }
+.contact-details a { color: inherit; text-decoration: none; }
+.contact-details a:hover { text-decoration: underline; }
+.contact-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+.contact-actions { display: flex; gap: 10px; padding-top: 6px; flex-wrap: wrap; }
+.contact-actions .btn {
+  padding: 9px 16px;
+  border-color: var(--color-accent-600);
+  color: #fff;
+}
+.contact-actions .btn:hover { background: color-mix(in srgb, #fff 12%, transparent); }
+
+/* ── footer ─────────────────────────────────────────────────────────────── */
+.site-footer {
+  padding: 14px var(--gutter);
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--color-neutral-600);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* ── image frames ───────────────────────────────────────────────────────── */
+.frame { position: relative; }
+.frame > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.frame-empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-neutral-600);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 9px,
+    color-mix(in srgb, var(--color-text) 5%, transparent) 9px 10px
+  );
+}
+
+/* ── tablet ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1079px) {
+  .expertise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-grid,
+  .work-grid { grid-template-columns: repeat(var(--cols-md, 2), minmax(0, 1fr)); }
+  .hero { grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; }
+  .hero-title { font-size: 62px; }
+  .detail-title { font-size: 40px; }
+}
+
+/* ── phone ──────────────────────────────────────────────────────────────── */
+@media (max-width: 759px) {
+  :root { --gutter: 20px; }
+
+  .site-nav { flex-wrap: wrap; }
+  .site-nav-links { gap: 16px; }
+
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 32px 20px 36px; }
+  .hero-title { font-size: 46px; }
+
+  .section { padding: 36px 20px; }
+  .section-title, .contact-heading { font-size: 28px; }
+
+  .stats { flex-wrap: wrap; padding: 16px 20px; gap: 10px 24px; }
+
+  .timeline { grid-template-columns: 62px minmax(0, 1fr); column-gap: 14px; }
+  .timeline-body { padding-left: 14px; }
+
+  .work-grid,
+  .portfolio-grid,
+  .detail-figs { grid-template-columns: minmax(0, 1fr); }
+
+  .detail { padding: 24px 20px 36px; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .detail-title { font-size: 32px; }
+  .detail-side { position: relative; top: auto; }
+  .detail-nav { flex-direction: column; align-items: stretch; gap: 10px; }
+
+  .contact { grid-template-columns: minmax(0, 1fr); }
+
+  .site-footer { flex-direction: column; gap: 4px; }
+}
+
+/* ── print (résumé-friendly) ────────────────────────────────────────────── */
+@media print {
+  .site-nav, .chips, .detail-nav, .detail-back { display: none; }
+  .shell { max-width: none; }
+  .contact { background: none; color: var(--color-text); }
+  .contact-heading { color: var(--color-text); }
+}

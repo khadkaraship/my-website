@@ -1,0 +1,44 @@
+---
+import { site } from '../lib/site';
+
+const { contact } = site;
+/** Strip spaces so tel: links dial correctly. */
+const telHref = contact.phone.replace(/[^\d+]/g, '');
+---
+
+{
+  contact.show && (
+    <section id="contact" class="contact">
+      <div>
+        <p class="eyebrow">
+          {contact.number} — {contact.kicker}
+        </p>
+        <h2 class="contact-heading">{contact.heading}</h2>
+        <p class="contact-text">{contact.text}</p>
+      </div>
+      <div class="contact-details">
+        {contact.email && (
+          <div>
+            <div class="contact-label">Email</div>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </div>
+        )}
+        {contact.phone && (
+          <div>
+            <div class="contact-label">Phone</div>
+            <a href={`tel:${telHref}`}>{contact.phone}</a>
+          </div>
+        )}
+        {contact.links.length > 0 && (
+          <div class="contact-actions">
+            {contact.links.map((link) => (
+              <a class="btn" href={link.href} rel="noopener" target="_blank">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

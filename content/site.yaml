@@ -1,0 +1,133 @@
+name: Raship Khadka
+brand: RASHIP KHADKA
+role: Civil Engineer
+tagline: Water resources, structural and geotechnical design — Kathmandu, Nepal
+theme:
+  background: '#f2f2f3'
+  text: '#1d1f20'
+  accent: '#5980a6'
+  accentDark: '#1d2d3d'
+  headingFont: Barlow Condensed
+  bodyFont: Barlow
+nav:
+  links:
+    - label: Home
+      href: /
+    - label: Portfolio
+      href: /portfolio
+    - label: Contact
+      href: '#contact'
+  button:
+    show: true
+    label: Résumé
+    href: /files/resume.pdf
+hero:
+  eyebrow: Civil Engineer · Kathmandu, Nepal
+  headingLines:
+    - RASHIP
+    - KHADKA
+  intro: Water resources, structural and geotechnical design — backed by GIS and Python automation. 2+ years designing hydraulic structures, water supply schemes and RCC buildings.
+  primaryButton:
+    show: true
+    label: Download résumé
+    href: /files/resume.pdf
+  secondaryButton:
+    show: true
+    label: View all projects
+    href: /portfolio
+  portrait: ''
+  portraitAlt: Portrait of Raship Khadka
+stats:
+  show: true
+  items:
+    - value: auto
+      label: projects delivered
+    - value: '4'
+      label: consultancies
+    - value: '2'
+      label: years teaching
+    - value: '1'
+      label: published paper
+experience:
+  show: true
+  number: '01'
+  kicker: Experience
+  heading: Where I've worked
+  items:
+    - period: 2025 —
+      periodNote: present
+      title: Civil Engineer, full-time — Hints Consult Pvt. Ltd.
+      description: Surveys, feasibility studies, hydraulic & hydrological analysis, DPRs, BOQs and e-bidding. AutoCAD, EPANET, ArcGIS, ETABS.
+      note: Intern 2023–24 · project-basis 2024–25.
+    - period: 2024 —
+      periodNote: '2026'
+      title: Lecturer & Instructor — School of Geomatics
+      description: Part-time. Civil construction & quantity estimation, land development & CAD, applied mechanics, engineering drawing.
+    - period: 2024 —
+      periodNote: '2025'
+      title: Civil Draftsperson — Fusion Engineering Services
+      description: Residential construction drawings to Australian standards; footing planning and rainwater harvesting design.
+    - period: 2019 —
+      periodNote: '2024'
+      title: B.E. Civil Engineering — Thapathali Campus, IOE, TU
+      description: 'Final year project: design of a water supply scheme for 10,000 people — forecasting, network design, reservoir sizing, costing.'
+expertise:
+  show: true
+  number: '02'
+  kicker: Expertise
+  heading: What I do
+  cards:
+    - title: Water Resources
+      description: Hydrology · hydraulic design · river training · flood management · hydraulic structures
+    - title: Structures
+      description: Residential & commercial RCC · structural analysis · construction drawings
+    - title: Geotechnics
+      description: Foundation design · soil investigation · slope stability · earthworks
+    - title: Geospatial
+      description: Spatial analysis · terrain modeling · cartography · basin analysis · digitization
+  toolsLabel: Tools
+  tools:
+    - AutoCAD
+    - ArcGIS Pro
+    - QGIS
+    - HEC-RAS
+    - WaterGEMS
+    - EPANET
+    - SW-WSP
+    - SW-Canal
+    - ETABS
+    - SAFE
+    - Python
+    - MS Office
+selectedWork:
+  show: true
+  number: '03'
+  kicker: Selected work
+  heading: Projects that define my journey
+  linkLabel: All projects →
+  count: 3
+portfolio:
+  kicker: Portfolio
+  intro: Water supply, irrigation, river training and structural design across Nepal — FY 2080/81 to 2082/83.
+  columns: 3
+  categories:
+    - Water supply
+    - Irrigation
+    - River training
+    - Structural
+contact:
+  show: true
+  number: '04'
+  kicker: Contact
+  heading: Open for opportunities
+  text: Water resources, structural or geotechnical engineering, GIS analysis, research, training or collaboration — based in Kathmandu and always open to a conversation.
+  email: khadkaraship@gmail.com
+  phone: +977 9862124894
+  links:
+    - label: LinkedIn
+      href: https://www.linkedin.com/
+    - label: WhatsApp
+      href: https://wa.me/9779862124894
+footer:
+  left: © 2026 Raship Khadka
+  right: Currently at Hints Consult Pvt. Ltd.

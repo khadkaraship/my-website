@@ -1,0 +1,135 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Frame from '../../components/Frame.astro';
+import { site } from '../../lib/site';
+import { allProjects, metaLine, neighbours, projectSlug, projectUrl } from '../../lib/projects';
+
+export const getStaticPaths = (async () => {
+  const projects = await allProjects();
+  return projects.map((project) => ({
+    params: { slug: projectSlug(project) },
+    props: { project },
+  }));
+}) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+const { name, type, client, place, fy, images, work, tools } = project.data;
+const gallery = images.gallery.filter((photo) => photo.image.trim().length > 0);
+
+const projects = await allProjects();
+const { prev, next } = neighbours(projects, project);
+
+// The text written under the `---` line in the project file, if any.
+const { Content } = await render(project);
+const hasNotes = project.body != null && project.body.trim().length > 0;
+---
+
+<Base title={`${name} — ${site.name}`} description={metaLine(project)}>
+  <article class="detail">
+    <a href="/portfolio" class="btn btn-ghost detail-back">← Back to portfolio</a>
+
+    <div class="detail-grid">
+      <div>
+        <span class="tag tag-accent">{type}</span>
+        <h1 class="detail-title">{name}</h1>
+        <p class="detail-meta">{metaLine(project)}</p>
+
+        <Frame
+          class="detail-hero"
+          src={images.cover}
+          alt={name}
+          caption={images.coverCaption || name}
+          loading="eager"
+        />
+
+        {
+          gallery.length > 0 && (
+            <div class="detail-figs" data-count={gallery.length}>
+              {gallery.map((photo) => (
+                <figure class="detail-fig">
+                  <Frame src={photo.image} alt={photo.caption} caption={photo.caption} />
+                  {photo.caption && <figcaption>{photo.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          )
+        }
+
+        {
+          hasNotes && (
+            <div class="detail-notes">
+              <Content />
+            </div>
+          )
+        }
+      </div>
+
+      <aside class="detail-side blueprint">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+
+        {client && (
+          <div>
+            <div class="side-label">Firm</div>
+            <div class="side-value">{client}</div>
+          </div>
+        )}
+        {place && (
+          <div>
+            <div class="side-label">Location</div>
+            <div class="side-value">{place}</div>
+          </div>
+        )}
+        {fy && (
+          <div>
+            <div class="side-label">Fiscal year</div>
+            <div class="side-value">{fy}</div>
+          </div>
+        )}
+
+        {
+          work.length > 0 && (
+            <>
+              <hr class="rule" />
+              <div>
+                <div class="side-label" style="margin-bottom:8px">My contributions</div>
+                <ul class="side-list">
+                  {work.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )
+        }
+
+        {
+          tools.length > 0 && (
+            <div>
+              <div class="side-label" style="margin-bottom:8px">Tools</div>
+              <div class="side-tags">
+                {tools.map((tool) => (
+                  <span class="tag tag-outline">{tool}</span>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </aside>
+    </div>
+
+    {
+      projects.length > 1 && (
+        <nav class="detail-nav" aria-label="Other projects">
+          <a class="btn btn-ghost" href={projectUrl(prev)} rel="prev">
+            ← {prev.data.name}
+          </a>
+          <a class="btn btn-ghost" href={projectUrl(next)} rel="next">
+            {next.data.name} →
+          </a>
+        </nav>
+      )
+    }
+  </article>
+</Base>

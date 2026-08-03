@@ -1,0 +1,243 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Settings for the visual editor at /admin
+#
+# Change `repo:` below to your own GitHub repository once the site is on GitHub,
+# e.g.  repo: rashipkhadka/raship-website
+# Everything else can stay as it is.
+# ─────────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: your-github-username/raship-website
+  branch: main
+  # Needed only for signing in from the LIVE site (editing on your own computer
+  # works without it). Uncomment and point it at your own copy of
+  # https://github.com/sveltia/sveltia-cms-auth — see EDITING.md.
+  # base_url: https://your-auth-worker.workers.dev
+
+# Lets you edit the site straight from your own computer in Chrome or Edge
+# while `npm run dev` is running — no GitHub login needed. See EDITING.md.
+local_backend: true
+
+# Uploaded photos land here and are linked as /images/<file name>
+media_folder: public/images
+public_folder: /images
+
+collections:
+  # ── Everything except the projects ─────────────────────────────────────────
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Site settings
+        file: content/site.yaml
+        description: Text, colours, contact details and section on/off switches.
+        fields:
+          - { name: name, label: Full name, widget: string }
+          - { name: brand, label: Name in the top-left corner, widget: string }
+          - { name: role, label: Job title, widget: string }
+          - { name: tagline, label: One-line summary, widget: text }
+
+          - name: theme
+            label: Colours & fonts
+            widget: object
+            collapsed: true
+            fields:
+              - { name: background, label: Page background, widget: color }
+              - { name: text, label: Text colour, widget: color }
+              - { name: accent, label: Accent colour, widget: color }
+              - { name: accentDark, label: Dark contact band, widget: color }
+              - { name: headingFont, label: Heading font (Google Fonts name), widget: string }
+              - { name: bodyFont, label: Body font (Google Fonts name), widget: string }
+
+          - name: nav
+            label: Top menu
+            widget: object
+            collapsed: true
+            fields:
+              - name: links
+                label: Menu links
+                widget: list
+                fields:
+                  - { name: label, label: Text, widget: string }
+                  - { name: href, label: Link, widget: string }
+              - name: button
+                label: Button on the right
+                widget: object
+                fields:
+                  - { name: show, label: Show it?, widget: boolean }
+                  - { name: label, label: Text, widget: string }
+                  - { name: href, label: Link, widget: string }
+
+          - name: hero
+            label: Top of the home page
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small line above the name, widget: string }
+              - { name: headingLines, label: Big heading (one line each), widget: list, field: { name: line, widget: string } }
+              - { name: intro, label: Introduction paragraph, widget: text }
+              - name: primaryButton
+                label: Main button
+                widget: object
+                fields:
+                  - { name: show, label: Show it?, widget: boolean }
+                  - { name: label, label: Text, widget: string }
+                  - { name: href, label: Link, widget: string }
+              - name: secondaryButton
+                label: Second button
+                widget: object
+                fields:
+                  - { name: show, label: Show it?, widget: boolean }
+                  - { name: label, label: Text, widget: string }
+                  - { name: href, label: Link, widget: string }
+              - { name: portrait, label: Your photo, widget: image, required: false }
+              - { name: portraitAlt, label: Photo description, widget: string, required: false }
+
+          - name: stats
+            label: Numbers strip
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this strip?, widget: boolean }
+              - name: items
+                label: Numbers
+                widget: list
+                fields:
+                  - { name: value, label: 'Number (write "auto" to count projects)', widget: string }
+                  - { name: label, label: Caption, widget: string }
+
+          - name: experience
+            label: '01 — Experience'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this section?, widget: boolean }
+              - { name: number, label: Section number, widget: string }
+              - { name: kicker, label: Small label, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - name: items
+                label: Jobs & education
+                widget: list
+                summary: '{{fields.title}}'
+                fields:
+                  - { name: period, label: Years, widget: string }
+                  - { name: periodNote, label: Second line under the years, widget: string, required: false }
+                  - { name: title, label: Role — organisation, widget: string }
+                  - { name: description, label: What you did, widget: text }
+                  - { name: note, label: Extra note (greyed out), widget: string, required: false }
+
+          - name: expertise
+            label: '02 — Expertise'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this section?, widget: boolean }
+              - { name: number, label: Section number, widget: string }
+              - { name: kicker, label: Small label, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - name: cards
+                label: Cards
+                widget: list
+                summary: '{{fields.title}}'
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+              - { name: toolsLabel, label: Label before the tools, widget: string }
+              - { name: tools, label: Tools, widget: list, field: { name: tool, widget: string } }
+
+          - name: selectedWork
+            label: '03 — Selected work'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this section?, widget: boolean }
+              - { name: number, label: Section number, widget: string }
+              - { name: kicker, label: Small label, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - { name: linkLabel, label: 'Link text (e.g. All projects →)', widget: string }
+              - { name: count, label: How many projects to show, widget: number, value_type: int, min: 1, max: 12 }
+
+          - name: portfolio
+            label: Portfolio page
+            widget: object
+            collapsed: true
+            fields:
+              - { name: kicker, label: Small label, widget: string }
+              - { name: intro, label: Introduction paragraph, widget: text }
+              - { name: columns, label: Projects side by side (2–4), widget: number, value_type: int, min: 2, max: 4 }
+              - { name: categories, label: Filter buttons, widget: list, field: { name: category, widget: string } }
+
+          - name: contact
+            label: '04 — Contact'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this section?, widget: boolean }
+              - { name: number, label: Section number, widget: string }
+              - { name: kicker, label: Small label, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - { name: text, label: Paragraph, widget: text }
+              - { name: email, label: Email, widget: string }
+              - { name: phone, label: Phone, widget: string }
+              - name: links
+                label: Buttons
+                widget: list
+                fields:
+                  - { name: label, label: Text, widget: string }
+                  - { name: href, label: Link, widget: string }
+
+          - name: footer
+            label: Footer
+            widget: object
+            collapsed: true
+            fields:
+              - { name: left, label: Left side, widget: string }
+              - { name: right, label: Right side, widget: string }
+
+  # ── One entry per project ──────────────────────────────────────────────────
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: content/projects
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: '{{fields.order}}-{{name}}'
+    summary: '{{name}}'
+    sortable_fields: [order, name, fy]
+    fields:
+      - { name: name, label: Project name, widget: string }
+      - name: type
+        label: Category
+        widget: select
+        options: [Water supply, Irrigation, River training, Structural]
+        hint: Must match one of the filter buttons on the portfolio page.
+      - { name: place, label: Location, widget: string, required: false }
+      - { name: client, label: Client / firm, widget: string, required: false }
+      - { name: fy, label: 'Fiscal year (e.g. 2081/82)', widget: string, required: false }
+      - { name: order, label: Sort position (lower shows first), widget: number, value_type: int, default: 999 }
+      - { name: featured, label: Show on the home page?, widget: boolean, default: false }
+      - name: images
+        label: Photos
+        widget: object
+        fields:
+          - { name: cover, label: Cover photo, widget: image, required: false }
+          - name: coverCaption
+            label: What the cover photo shows
+            widget: string
+            required: false
+            hint: Also used as the placeholder text until a photo is added.
+          - name: gallery
+            label: More photos
+            widget: list
+            required: false
+            summary: '{{fields.caption}}'
+            hint: >-
+              Add as many as you like, or none at all. One photo fills the width;
+              two or more sit side by side. Empty frames are never shown.
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: caption, label: Caption, widget: string, required: false }
+      - { name: work, label: What you did, widget: list, field: { name: item, widget: string } }
+      - { name: tools, label: Tools used, widget: list, field: { name: tool, widget: string } }
+      - { name: body, label: Extra notes (optional), widget: markdown, required: false }

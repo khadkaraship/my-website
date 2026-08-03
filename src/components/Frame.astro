@@ -1,0 +1,29 @@
+---
+/**
+ * A blueprint-framed image.
+ *
+ * If `src` is empty (no photo added yet) it renders a tidy hatched placeholder
+ * showing the caption, so an unfinished project page still looks deliberate.
+ */
+interface Props {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src = '', alt = '', caption = 'Image', class: className = '', loading = 'lazy' } = Astro.props;
+const hasImage = src.trim().length > 0;
+---
+
+<div class:list={['frame', 'blueprint', hasImage && 'duotone', className]}>
+  <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+  {
+    hasImage ? (
+      <img src={src} alt={alt || caption} loading={loading} decoding="async" />
+    ) : (
+      <div class="frame-empty">{caption}</div>
+    )
+  }
+</div>

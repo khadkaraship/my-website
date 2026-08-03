@@ -1,0 +1,32 @@
+---
+import { site } from '../lib/site';
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+/** A link is "current" when the page you are on lives under it. */
+function isCurrent(href: string): boolean {
+  if (href.startsWith('#') || href.startsWith('http')) return false;
+  const target = href.replace(/\/+$/, '') || '/';
+  return target === '/' ? path === '/' : path === target || path.startsWith(`${target}/`);
+}
+---
+
+<nav class="nav site-nav" aria-label="Main">
+  <a href="/" class="nav-brand">{site.brand}</a>
+  <div class="site-nav-links">
+    {
+      site.nav.links.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+          {link.label}
+        </a>
+      ))
+    }
+    {
+      site.nav.button.show && site.nav.button.label && (
+        <a class="btn btn-primary" href={site.nav.button.href}>
+          {site.nav.button.label}
+        </a>
+      )
+    }
+  </div>
+</nav>

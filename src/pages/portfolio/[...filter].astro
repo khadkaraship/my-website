@@ -1,0 +1,89 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { site } from '../../lib/site';
+import { allProjects, categoriesWithCounts, fyRange } from '../../lib/projects';
+
+/**
+ * Builds `/portfolio` plus one page per category, e.g. `/portfolio/irrigation`.
+ * Filtering is done at build time, so the chips are ordinary links — no
+ * JavaScript, and each filtered view has its own shareable address.
+ */
+export const getStaticPaths = (async () => {
+  const projects = await allProjects();
+  const categories = categoriesWithCounts(projects);
+
+  return [
+    { params: { filter: undefined }, props: { category: null } },
+    ...categories.map((c) => ({
+      params: { filter: c.slug },
+      props: { category: c.label },
+    })),
+  ];
+}) satisfies GetStaticPaths;
+
+interface Props {
+  category: string | null;
+}
+
+const { category } = Astro.props;
+
+const projects = await allProjects();
+const categories = categoriesWithCounts(projects);
+const shown = category ? projects.filter((p) => p.data.type === category) : projects;
+
+const heading = category
+  ? `${shown.length} ${category.toLowerCase()} ${shown.length === 1 ? 'project' : 'projects'}`
+  : [`${projects.length} projects`, fyRange(projects)].filter(Boolean).join(', ');
+
+const chips = [
+  { label: `All ${projects.length}`, href: '/portfolio', active: category === null },
+  ...categories.map((c) => ({
+    label: `${c.label} ${c.count}`,
+    href: `/portfolio/${c.slug}`,
+    active: category === c.label,
+  })),
+];
+
+const cols = site.portfolio.columns;
+---
+
+<Base title={`Portfolio — ${site.name}`} description={site.portfolio.intro || site.tagline}>
+  <section class="section">
+    <p class="eyebrow">{site.portfolio.kicker}</p>
+    <h2 class="section-title section-title-tight">{heading}</h2>
+    {site.portfolio.intro && <p class="portfolio-intro">{site.portfolio.intro}</p>}
+
+    {
+      chips.length > 1 && (
+        <div class="chips">
+          {chips.map((chip) => (
+            <a
+              href={chip.href}
+              class:list={['tag', chip.active ? 'tag-accent' : 'tag-outline']}
+              aria-current={chip.active ? 'page' : undefined}
+            >
+              {chip.label}
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      shown.length > 0 ? (
+        <div
+          class="portfolio-grid"
+          style={`--cols:${cols};--cols-md:${Math.min(cols, 2)}`}
+        >
+          {shown.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ) : (
+        <p class="empty-note">No projects to show here yet.</p>
+      )
+    }
+  </section>
+</Base>

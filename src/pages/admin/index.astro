@@ -1,0 +1,27 @@
+---
+/**
+ * The visual editor at /admin (Sveltia CMS).
+ *
+ * This is an Astro route rather than a plain file in public/ so that the
+ * address works with and without a trailing slash, in `npm run dev` as well as
+ * on the deployed site.
+ *
+ * The form definitions live in `public/admin/config.yml` — that is the file to
+ * edit when you add a new field. It is linked explicitly below so it is found
+ * no matter which form of the URL you arrive on.
+ */
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Edit the website</title>
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <script src="https://unpkg.com/@sveltia/cms@^0/dist/sveltia-cms.js" type="module"></script>
+  </body>
+</html>

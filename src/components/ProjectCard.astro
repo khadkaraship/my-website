@@ -1,0 +1,18 @@
+---
+import Frame from './Frame.astro';
+import { metaLine, projectUrl, type Project } from '../lib/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { name, type, images } = project.data;
+---
+
+<a class="project-card" href={projectUrl(project)}>
+  <Frame src={images.cover} alt={name} caption={images.coverCaption || name} />
+  <span class="tag tag-outline">{type}</span>
+  <div class="project-name">{name}</div>
+  <p class="project-meta">{metaLine(project)}</p>
+</a>
