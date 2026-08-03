@@ -23,7 +23,7 @@ nav:
     label: Résumé
     href: /files/resume.pdf
 hero:
-  eyebrow: Civil Engineer · Kathmandu, Nepal
+  eyebrow: Berojgar · Kathmandu, Nepal
   headingLines:
     - RASHIP
     - KHADKA
@@ -55,9 +55,9 @@ experience:
   kicker: Experience
   heading: Where I've worked
   items:
-    - period: 2025 —
+    - period: 2023 —
       periodNote: present
-      title: Civil Engineer, full-time — Hints Consult Pvt. Ltd.
+      title: Civil Engineer, full-time/Part-time/Intern — Hints Consult Pvt. Ltd.
       description: Surveys, feasibility studies, hydraulic & hydrological analysis, DPRs, BOQs and e-bidding. AutoCAD, EPANET, ArcGIS, ETABS.
       note: Intern 2023–24 · project-basis 2024–25.
     - period: 2024 —
