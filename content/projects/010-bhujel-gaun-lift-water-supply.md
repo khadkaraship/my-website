@@ -24,14 +24,12 @@ featured: true
 # below like this:  cover: '/images/bhujel-source.jpg'
 # Leave the cover blank ('') and the site shows a tidy empty frame instead.
 images:
-  cover: '/images/test-cover.svg'
+  cover: ''
   coverCaption: 'Spring source in forest'
 
   # Extra photos, as many or as few as you like. Copy an "- image:" pair to add
   # another; delete them all and the project page simply shows the cover.
-  gallery:
-    - image: '/images/test-drawing.svg'
-      caption: 'Network layout plan'
+  gallery: []
   # gallery:
   #   - image: '/images/example-drawing.jpg'
   #     caption: 'Layout plan'

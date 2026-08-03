@@ -24,7 +24,7 @@ featured: true
 # below like this:  cover: '/images/bhujel-source.jpg'
 # Leave the cover blank ('') and the site shows a tidy empty frame instead.
 images:
-  cover: '/images/test-cover.svg'
+  cover: ''
   coverCaption: 'Command area'
 
   # Extra photos, as many or as few as you like. Copy an "- image:" pair to add

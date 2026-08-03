@@ -49,6 +49,13 @@ collections:
               - { name: accentDark, label: Dark contact band, widget: color }
               - { name: headingFont, label: Heading font (Google Fonts name), widget: string }
               - { name: bodyFont, label: Body font (Google Fonts name), widget: string }
+              - name: photoTint
+                label: Tint photos with the accent colour?
+                widget: boolean
+                default: true
+                hint: >-
+                  On gives the blueprint look — every photo takes the accent hue.
+                  Off shows your photographs in full colour.
 
           - name: nav
             label: Top menu

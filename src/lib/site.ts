@@ -34,6 +34,12 @@ const schema = z.object({
       accentDark: z.string().default('#1d2d3d'),
       headingFont: z.string().default('Barlow Condensed'),
       bodyFont: z.string().default('Barlow'),
+      /**
+       * The design system tints every photo with the accent colour, which is
+       * what gives the site its blueprint look. Set to false for full-colour
+       * photographs.
+       */
+      photoTint: z.boolean().default(true),
     })
     .default({}),
 

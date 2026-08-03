@@ -5,6 +5,8 @@
  * If `src` is empty (no photo added yet) it renders a tidy hatched placeholder
  * showing the caption, so an unfinished project page still looks deliberate.
  */
+import { site } from '../lib/site';
+
 interface Props {
   src?: string;
   alt?: string;
@@ -17,7 +19,7 @@ const { src = '', alt = '', caption = 'Image', class: className = '', loading = 
 const hasImage = src.trim().length > 0;
 ---
 
-<div class:list={['frame', 'blueprint', hasImage && 'duotone', className]}>
+<div class:list={['frame', 'blueprint', hasImage && site.theme.photoTint && 'duotone', className]}>
   <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
   {
     hasImage ? (

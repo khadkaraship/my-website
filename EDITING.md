@@ -101,8 +101,11 @@ fy: '2082/83'
 order: 35                   # lower = earlier
 featured: true              # true = also show it on the home page
 images:
-  main: '/images/tinau-site.jpg'
-  mainCaption: 'Gabion spur under construction'
+  cover: '/images/tinau-site.jpg'
+  coverCaption: 'Gabion spur under construction'
+  gallery:                      # as many or as few as you like — or none
+    - image: '/images/tinau-plan.jpg'
+      caption: 'Spur layout plan'
 work:
   - 'Hydrological analysis'
   - 'Engineering drawings'
@@ -120,12 +123,24 @@ project page. Leave it empty and the page simply skips it.
 
 1. Drop the image file into `public/images/`.
 2. Write its name in the project file, starting with `/images/`:
-   `main: '/images/tinau-site.jpg'`
+   `cover: '/images/tinau-site.jpg'`
+
+**How many photos per project?** Any number. The `cover` is the one that shows
+on the cards; everything under `gallery:` appears below it on the project page:
+
+| Photos in `gallery` | What the project page shows |
+| --- | --- |
+| none | just the cover — no empty frames |
+| one | one full-width photo under the cover |
+| two or more | a two-across grid |
 
 Notes:
 
-- Leave a photo blank (`''`) and the site shows a neat empty frame — nothing
-  looks broken.
+- Leave the cover blank (`''`) and the site shows a neat empty frame with your
+  caption in it — nothing looks broken while you're still gathering photos.
+- Photos are tinted with the accent colour by default — that's what gives the
+  site its blueprint look. For full-colour photographs, set
+  `photoTint: false` under `theme:` in `content/site.yaml`.
 - Use lowercase file names with dashes, no spaces: `tinau-site.jpg`, not
   `Tinau Site.JPG`.
 - Resize photos to about **1600px wide** before adding them, so pages load fast.
