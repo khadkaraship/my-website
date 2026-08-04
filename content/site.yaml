@@ -36,7 +36,7 @@ hero:
     show: true
     label: View all projects
     href: /portfolio
-  portrait: ''
+  portrait: /images/ChatGPT Image Jul 7, 2026, 09_20_37 PM_1.png
   portraitAlt: Portrait of Raship Khadka
 stats:
   show: true
