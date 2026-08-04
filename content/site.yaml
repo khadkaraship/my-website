@@ -23,7 +23,7 @@ nav:
     label: Résumé
     href: /files/resume.pdf
 hero:
-  eyebrow: Berojgar · Kathmandu, Nepal
+  eyebrow: Civil Engineer · Kathmandu, Nepal
   headingLines:
     - RASHIP
     - KHADKA
@@ -81,11 +81,11 @@ expertise:
     - title: Water Resources
       description: Hydrological Analysis · Hydraulic design · River Training Works · Flood Management · Hydraulic structures · Reservior Cell Identification · Disaster Management
     - title: Structures
-      description: Residential & commercial RCC · structural analysis · construction drawings
+      description: Residential & Commercial RCC · Structural analysis · Construction drawings
     - title: Geotechnics
-      description: Foundation design · soil investigation · slope stability · earthworks
+      description: Foundation design · Soil investigation · Slope stability · Earthworks
     - title: Geospatial
-      description: Spatial analysis · terrain modeling · cartography · basin analysis · digitization
+      description: Spatial Analysis · Terrain Modeling · Cartography · Basin Analysis · Digitization
   toolsLabel: Tools
   tools:
     - AutoCAD
