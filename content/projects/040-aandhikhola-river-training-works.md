@@ -3,7 +3,7 @@ name: Aandhikhola River Training Works
 type: River training
 place: Bhirkot & Waling, Syangja
 client: Hints Consult Pvt. Ltd.
-fy: 2080/81
+fy: 2080/81 (2024)
 order: 40
 featured: false
 images:
@@ -11,13 +11,14 @@ images:
   coverCaption: Total station survey
   gallery: []
 work:
-  - Hydrological analysis
+  - Hydrological Analysis
   - Engineering drawings
   - Report preparation
 tools:
   - HEC-RAS
   - AutoCAD
   - ArcGIS Pro
+  - MS Office
 ---
 
 <!-- Anything written below the line above appears as extra text on the
