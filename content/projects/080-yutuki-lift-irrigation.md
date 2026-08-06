@@ -12,12 +12,11 @@ images:
   gallery: []
 work:
   - Hydrological analysis
-  - Structure design
   - Engineering drawings
+  - Report Preparation and Documentation
 tools:
   - AutoCAD
-  - SW-Canal
-  - ArcGIS Pro
+  - MS Office
 ---
 
 <!-- Anything written below the line above appears as extra text on the
