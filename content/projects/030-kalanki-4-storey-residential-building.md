@@ -13,12 +13,14 @@ images:
 work:
   - 2D drawings
   - 3D model
-  - Structural & foundation analysis
+  - Structural & Foundation analysis
   - Municipal approval works
+  - Report Preparation
 tools:
   - ETABS
   - SAFE
   - AutoCAD
+  - MS Office
 firm: Freelance
 ---
 
