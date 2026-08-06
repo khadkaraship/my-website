@@ -8,7 +8,7 @@ order: 40
 featured: true
 images:
   cover: /images/Aandhi Khola River Training W.jpg
-  coverCaption: Total station survey
+  coverCaption: Total Station Survey
   gallery: []
 work:
   - Hydrological Analysis
