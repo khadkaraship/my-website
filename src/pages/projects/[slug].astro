@@ -15,7 +15,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { project } = Astro.props;
-const { name, type, client, place, fy, images, work, tools } = project.data;
+const { name, type, client, firm, place, fy, images, work, tools } = project.data;
 const gallery = images.gallery.filter((photo) => photo.image.trim().length > 0);
 
 const projects = await allProjects();
@@ -71,8 +71,14 @@ const hasNotes = project.body != null && project.body.trim().length > 0;
 
         {client && (
           <div>
-            <div class="side-label">Firm</div>
+            <div class="side-label">Client</div>
             <div class="side-value">{client}</div>
+          </div>
+        )}
+        {firm && (
+          <div>
+            <div class="side-label">Firm</div>
+            <div class="side-value">{firm}</div>
           </div>
         )}
         {place && (

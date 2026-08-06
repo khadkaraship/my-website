@@ -12,7 +12,10 @@ const projects = defineCollection({
     name: z.string(),
     type: z.string(),
     place: z.string().default(''),
+    /** Who the work was for — the municipality, RM or owner. */
     client: z.string().default(''),
+    /** Who you did it through — the consultancy, or "Freelance". */
+    firm: z.string().default(''),
     fy: z.string().default(''),
     order: z.number().default(999),
     featured: z.boolean().default(false),

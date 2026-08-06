@@ -227,7 +227,16 @@ collections:
         options: [Water supply, Irrigation, River training, Structural]
         hint: Must match one of the filter buttons on the portfolio page.
       - { name: place, label: Location, widget: string, required: false }
-      - { name: client, label: Client / firm, widget: string, required: false }
+      - name: client
+        label: Client
+        widget: string
+        required: false
+        hint: Who the work was for — municipality, RM, owner. Hidden if left blank.
+      - name: firm
+        label: Firm
+        widget: string
+        required: false
+        hint: Who you did it through — the consultancy, or "Freelance". Hidden if left blank.
       - { name: fy, label: 'Fiscal year (e.g. 2081/82)', widget: string, required: false }
       - { name: order, label: Sort position (lower shows first), widget: number, value_type: int, default: 999 }
       - { name: featured, label: Show on the home page?, widget: boolean, default: false }

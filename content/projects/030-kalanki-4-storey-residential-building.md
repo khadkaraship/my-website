@@ -2,7 +2,11 @@
 name: 4-Storey Residential Building
 type: Structural
 place: Kalanki, Kathmandu
-client: Freelance
+# Who the work was for (municipality, RM, owner). Leave blank to hide it.
+client: ''
+
+# Who you did it through — the consultancy, or 'Freelance'.
+firm: Freelance
 fy: 2082/83 (2026)
 order: 30
 featured: true
