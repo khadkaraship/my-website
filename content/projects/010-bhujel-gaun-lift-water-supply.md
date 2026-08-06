@@ -11,16 +11,17 @@ images:
   coverCaption: Spring source in forest
   gallery: []
 work:
-  - Topographic survey
+  - Topographic Survey
   - Hydraulic Design
+  - Engineering Drawings
   - Estimation & Costing
-  - Engineering drawings
-  - DPR preparation
+  - DPR Preparation
 tools:
-  - AutoCAD
-  - EPANET
   - SW-WSP
+  - WaterGEMS
+  - EPANET
   - ArcGIS Pro
+  - AutoCAD
   - MS Office
 ---
 
