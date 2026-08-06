@@ -4,7 +4,7 @@ type: Water supply
 place: Tansen Municipality, Palpa
 client: Hints Consult Pvt. Ltd.
 fy: 2080/81 (2024)
-order: 50
+order: 39
 featured: false
 images:
   cover: /images/Bhulke Lift WSP.jpg
