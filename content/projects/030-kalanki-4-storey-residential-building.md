@@ -11,9 +11,9 @@ images:
   coverCaption: ETABS 3D model
   gallery: []
 work:
-  - 2D drawings
-  - 3D model
-  - Structural & Foundation analysis
+  - 2D Drawings
+  - 3D Model
+  - Structural & Foundation Analysis
   - Municipal approval works
   - Report Preparation
 tools:
