@@ -11,10 +11,12 @@ images:
   coverCaption: Reservoir tank site
   gallery: []
 work:
+  - Hydraulic Analysis
   - Engineering Drawings
   - Estimation & Costing
   - DPR Preparation
 tools:
+  - SW WSP
   - AutoCAD
   - MS Office
 ---
