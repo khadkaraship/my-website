@@ -4,7 +4,7 @@ type: Structural
 place: Kalanki, Kathmandu
 client: Freelance
 fy: 2082/83 (2026)
-order: 30
+order: 1
 featured: true
 images:
   cover: /images/Kalanki Building.png
