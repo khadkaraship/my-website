@@ -2,7 +2,7 @@
 name: Dhodeni Padhero Irrigation Project
 type: Irrigation
 place: Bharatpur Metro, Chitwan
-client: Hints Consult Pvt. Ltd.
+client: Kaustuv Engineering Consultancy Pvt. Ltd.
 fy: 2080/81 (2023)
 order: 70
 featured: false
