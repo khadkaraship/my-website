@@ -3,7 +3,7 @@ name: 4-Storey Residential Building
 type: Structural
 place: Kalanki, Kathmandu
 client: Freelance
-fy: 2082/83
+fy: 2082/83 (2026)
 order: 30
 featured: true
 images:
