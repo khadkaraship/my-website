@@ -5,19 +5,19 @@ place: Bhirkot & Waling, Syangja
 client: Hints Consult Pvt. Ltd.
 fy: 2080/81 (2024)
 order: 40
-featured: false
+featured: true
 images:
   cover: /images/Aandhi Khola River Training W.jpg
   coverCaption: Total station survey
   gallery: []
 work:
   - Hydrological Analysis
-  - Engineering drawings
-  - Report preparation
+  - Engineering Drawings
+  - Report Preparation
 tools:
   - HEC-RAS
+  - ArcGIS
   - AutoCAD
-  - ArcGIS Pro
   - MS Office
 ---
 
