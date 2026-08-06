@@ -58,21 +58,27 @@ experience:
   items:
     - period: 2023 —
       periodNote: present
-      title: Civil Engineer, full-time/Part-time/Intern — Hints Consult Pvt. Ltd.
-      description: Surveys, feasibility studies, hydraulic & hydrological analysis, DPRs, BOQs and e-bidding. AutoCAD, EPANET, ArcGIS, ETABS.
-      note: Intern 2023–24 · project-basis 2024–25.
+      title: Civil Engineer — Hints Consult Pvt. Ltd.
+      description: Surveys, Feasibility Studies, Hydraulic & Hydrological Analysis, DPRs, BOQs and E-bidding.
+      note: Intern 2023–24 · Project-basis 2024–25 · Full-time 2025
     - period: 2024 —
       periodNote: '2026'
       title: Lecturer & Instructor — School of Geomatics
-      description: Part-time. Civil construction & quantity estimation, land development & CAD, applied mechanics, engineering drawing.
+      description: Civil construction & quantity estimation, Land development & CAD, Applied Mechanics, Engineering Drawing, GIS.
+      note: ''
     - period: 2024 —
       periodNote: '2025'
       title: Civil Draftsperson — Fusion Engineering Services
-      description: Residential construction drawings to Australian standards; footing planning and rainwater harvesting design.
+      description: Residential construction drawings to Australian standards; Footing planning and Rainwater harvesting design.
+      note: ''
     - period: 2019 —
       periodNote: '2024'
       title: B.E. Civil Engineering — Thapathali Campus, IOE, TU
-      description: 'Final year project: design of a water supply scheme for 10,000 people — forecasting, network design, reservoir sizing, costing.'
+      description: |-
+        Final year project: DESIGN OF WATER SUPPLY SCHEME FOR 10000 POPULATION FROM THE 
+        SOURCE TO THE 3KM DISTANCE OF SETTLEMENTS
+        Prepared Detailed Project Report.
+      note: ''
 expertise:
   show: true
   number: '02'
