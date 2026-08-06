@@ -8,7 +8,7 @@ order: 50
 featured: false
 images:
   cover: /images/Bhulke Lift WSP.jpg
-  coverCaption: Reservoir tank site
+  coverCaption: Existing Reservoir Tank Site
   gallery: []
 work:
   - Hydraulic Analysis
