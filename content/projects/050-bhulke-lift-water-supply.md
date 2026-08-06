@@ -11,7 +11,8 @@ images:
   coverCaption: Reservoir tank site
   gallery: []
 work:
-  - Engineering drawings
+  - Engineering Drawings
+  - Estimation & Costing
   - DPR Preparation
 tools:
   - AutoCAD
