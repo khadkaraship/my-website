@@ -11,7 +11,7 @@ images:
   coverCaption: Command area
   gallery: []
 work:
-  - Hydrological & Economic analysis
+  - Hydrological & Hydraulic Analysis
   - Engineering Drawings
   - GIS mapping
   - DPR preparation
