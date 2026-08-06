@@ -3,7 +3,7 @@ name: Chyadra Khola Irrigation Project
 type: Irrigation
 place: Rapti RM, Chitwan
 client: Hints Consult Pvt. Ltd.
-fy: 2080/81
+fy: 2080/81 (2023)
 order: 110
 featured: false
 images:
@@ -11,11 +11,11 @@ images:
   coverCaption: Khola crossing
   gallery: []
 work:
-  - Hydrological analysis
   - Engineering drawings
+  - DPR Preaparation
 tools:
   - AutoCAD
-  - HEC-RAS
+  - MS Office
 ---
 
 <!-- Anything written below the line above appears as extra text on the
