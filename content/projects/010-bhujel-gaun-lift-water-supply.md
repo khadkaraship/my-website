@@ -8,7 +8,7 @@ order: 1
 featured: true
 images:
   cover: /images/Bhujel Gaun WSP.jpg
-  coverCaption: Spring source in forest
+  coverCaption: Spring Source in the Forest
   gallery: []
 work:
   - Topographic Survey
