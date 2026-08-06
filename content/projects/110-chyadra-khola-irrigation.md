@@ -8,10 +8,10 @@ order: 110
 featured: false
 images:
   cover: /images/Chyadra IRR.jpg
-  coverCaption: Khola crossing
+  coverCaption: Existing Intake Structures
   gallery: []
 work:
-  - Engineering drawings
+  - Engineering Drawings
   - DPR Preaparation
 tools:
   - AutoCAD
