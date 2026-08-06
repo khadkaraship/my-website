@@ -73,8 +73,8 @@ export function fyRange(projects: Project[]): string {
 
 /** One line of metadata: "Tansen, Palpa · Hints Consult · FY 2080/81". */
 export function metaLine(project: Project): string {
-  const { place, client, fy } = project.data;
-  return [place, client, fy && `FY ${fy}`].filter(Boolean).join(' · ');
+  const { place, client, firm, fy } = project.data;
+  return [place, client, firm, fy && `FY ${fy}`].filter(Boolean).join(' · ');
 }
 
 /** The project before and after this one, wrapping around at the ends. */

@@ -9,7 +9,11 @@ name: 'Mulabari Khola Irrigation Project'
 type: 'Irrigation'
 
 place: 'Kalika, Chitwan'
-client: 'Hints Consult Pvt. Ltd.'
+# Who the work was for (municipality, RM, owner). Leave blank to hide it.
+client: ''
+
+# Who you did it through — the consultancy, or 'Freelance'.
+firm: 'Hints Consult Pvt. Ltd.'
 fy: '2080/81'
 
 # Lower numbers appear first. Leave gaps (10, 20, 30…) so you can slot new

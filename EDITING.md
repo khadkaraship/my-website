@@ -96,7 +96,8 @@ number inside the file.
 name: 'Tinau River Training Works'
 type: 'River training'      # must match a filter button in site.yaml
 place: 'Butwal, Rupandehi'
-client: 'Hints Consult Pvt. Ltd.'
+client: 'Butwal Sub-Metropolitan City'   # leave as '' to hide this row
+firm: 'Hints Consult Pvt. Ltd.'          # leave as '' to hide this row
 fy: '2082/83'
 order: 35                   # lower = earlier
 featured: true              # true = also show it on the home page
