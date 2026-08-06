@@ -1,9 +1,9 @@
 ---
-name: Dhodeni Padhero Water Supply Project
-type: Water supply
-place: Location to confirm
+name: Dhodeni Padhero Irrigation Project
+type: Irrigation
+place: Bharatpur Metro, Chitwan
 client: Hints Consult Pvt. Ltd.
-fy: 2080/81
+fy: 2080/81 (2023)
 order: 70
 featured: false
 images:
@@ -11,12 +11,11 @@ images:
   coverCaption: Spring intake
   gallery: []
 work:
-  - Hydraulic design
   - Engineering drawings
-  - Estimation
+  - DPR Preparation
 tools:
   - AutoCAD
-  - EPANET
+  - MS Office
 ---
 
 <!-- Anything written below the line above appears as extra text on the
