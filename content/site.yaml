@@ -9,7 +9,7 @@ theme:
   accentDark: '#1d2d3d'
   headingFont: Barlow Condensed
   bodyFont: Barlow
-  photoTint: true
+  photoTint: false
 nav:
   links:
     - label: Home
