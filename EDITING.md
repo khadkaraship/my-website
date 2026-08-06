@@ -141,6 +141,9 @@ Notes:
 - Photos are tinted with the accent colour by default — that's what gives the
   site its blueprint look. For full-colour photographs, set
   `photoTint: false` under `theme:` in `content/site.yaml`.
+- The small cross marks at the corners of photos, cards and the project sidebar
+  are the drafting-sheet motif. Set `frameMarks: false` under `theme:` for plain
+  frames instead.
 - Use lowercase file names with dashes, no spaces: `tinau-site.jpg`, not
   `Tinau Site.JPG`.
 - Resize photos to about **1600px wide** before adding them, so pages load fast.

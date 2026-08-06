@@ -56,6 +56,13 @@ collections:
                 hint: >-
                   On gives the blueprint look — every photo takes the accent hue.
                   Off shows your photographs in full colour.
+              - name: frameMarks
+                label: Show corner marks on frames?
+                widget: boolean
+                default: true
+                hint: >-
+                  The small cross marks at the corners of photos, cards and the
+                  project sidebar. Off gives plain frames.
 
           - name: nav
             label: Top menu

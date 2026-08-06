@@ -5,6 +5,8 @@ Static portfolio site built from the "Portfolio Site" Claude Design project.
 **If you only want to change text, photos or colours, read [EDITING.md](EDITING.md)
 instead — you never need to open a code file.**
 
+For why the code is shaped the way it is, see [DESIGN.md](DESIGN.md).
+
 ## Stack
 
 | | |
@@ -49,23 +51,6 @@ src/
     design-system.css        copied from the design project — don't edit
     site.css                 page layout and responsive rules
 ```
-
-### Notes on the port from the design file
-
-- The design switched layouts by measuring `window.innerWidth` in JavaScript.
-  That is now plain CSS media queries (`< 760px`, `760–1079px`, `≥ 1080px`), so
-  the right layout is in the HTML at first paint and there is no layout shift.
-- Client-side page switching became real URLs: `/`, `/portfolio`,
-  `/portfolio/irrigation`, `/projects/<name>`. Each is shareable and indexable.
-- Category filters are static pages rather than JavaScript state, so filtering
-  works with JavaScript disabled.
-- `<image-slot>` (the drag-and-drop placeholder from the design canvas) became
-  `Frame.astro`: it shows the photo when one is set and a hatched placeholder
-  with the caption when it isn't.
-- The nine hard-coded accent shades are now derived from the single `accent`
-  colour in `site.yaml`, so re-branding is one line instead of nine.
-- Project counts, filter counts and the fiscal-year range in the portfolio
-  heading are all computed from the project files.
 
 ## Publishing
 

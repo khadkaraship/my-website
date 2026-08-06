@@ -39,7 +39,8 @@ const themeCss = `:root{
   --color-accent-700:color-mix(in oklab, var(--color-accent) 80%, #000);
   --color-accent-800:color-mix(in oklab, var(--color-accent) 56%, #000);
   --color-accent-900:${t.accentDark};
-}`;
+}
+${t.frameMarks ? '' : '.blueprint > .corner{display:none}'}`;
 ---
 
 <!doctype html>

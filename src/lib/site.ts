@@ -40,6 +40,11 @@ const schema = z.object({
        * photographs.
        */
       photoTint: z.boolean().default(true),
+      /**
+       * The little cross marks at the corners of photos, cards and the project
+       * sidebar — the drafting-sheet motif. Set to false for plain frames.
+       */
+      frameMarks: z.boolean().default(true),
     })
     .default({}),
 
