@@ -28,7 +28,7 @@ hero:
   headingLines:
     - RASHIP
     - KHADKA
-  intro: Water Resources, Structural and Geotechnical Designs — backed by GIS and Python automation. 2+ years of surveys, site investigations, designing hydraulic structures, water supply and irrigation schemes and RCC buildings.
+  intro: Water Resources, Structural and Geotechnical Designs — backed by GIS and Python automation. 2+ years of experience in surveys, site investigations, designing hydraulic structures, water supply and irrigation schemes and RCC buildings.
   primaryButton:
     show: false
     label: Download résumé
@@ -61,6 +61,11 @@ experience:
       title: Civil Engineer — Hints Consult Pvt. Ltd.
       description: Surveys, Feasibility Studies, Hydraulic & Hydrological Analysis, DPRs, BOQs and E-bidding.
       note: Intern 2023–24 · Project-basis 2024–25 · Full-time 2025
+    - period: 2023-
+      periodNote: Present
+      title: Civil Engineer — Kaustuv Engineering Counsultancy Pvt. Ltd.
+      description: Surveys, Feasibility Studies, Hydraulic & Hydrological Analysis, DPRs, and BOQs.
+      note: Project Basis
     - period: 2024 —
       periodNote: '2026'
       title: Lecturer & Instructor — School of Geomatics
