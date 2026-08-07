@@ -113,7 +113,7 @@ selectedWork:
   show: true
   number: '03'
   kicker: Selected work
-  heading: Projects that define my journey
+  heading: Projects That Define My Journey
   linkLabel: All projects →
   count: 4
 portfolio:
