@@ -88,7 +88,7 @@ expertise:
   heading: What I do
   cards:
     - title: Water Resources
-      description: Hydrological Analysis · Hydraulic design · River Training Works · Flood Management · Hydraulic structures · Reservior Cell Identification · Disaster Management
+      description: Hydrological Analysis · Hydraulic Design · River Training Works · Flood Management · Hydraulic structures · Reservior Cell Identification · Disaster Management
     - title: Structures
       description: Residential & Commercial RCC · Structural analysis · Construction drawings
     - title: Geotechnics
@@ -115,11 +115,11 @@ selectedWork:
   kicker: Selected work
   heading: Projects that define my journey
   linkLabel: All projects →
-  count: 3
+  count: 4
 portfolio:
   kicker: Portfolio
   intro: Water supply, Irrigation, River training, Hydropower, Geotechnical and Structural design across Nepal.
-  columns: 3
+  columns: 4
   categories:
     - Water supply
     - Irrigation
