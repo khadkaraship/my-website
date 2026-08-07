@@ -57,10 +57,10 @@ experience:
   heading: Where I've worked
   items:
     - period: 2023 —
-      periodNote: present
+      periodNote: Present
       title: Civil Engineer — Hints Consult Pvt. Ltd.
       description: Surveys, Feasibility Studies, Hydraulic & Hydrological Analysis, DPRs, BOQs and E-bidding.
-      note: Intern 2023–24 · Project-basis 2024–25 · Full-time 2025
+      note: Intern 2023–24 · Project-basis · Full-time 2025
     - period: 2023-
       periodNote: Present
       title: Civil Engineer — Kaustuv Engineering Counsultancy Pvt. Ltd.
@@ -69,19 +69,17 @@ experience:
     - period: 2024 —
       periodNote: '2026'
       title: Lecturer & Instructor — School of Geomatics
-      description: Civil construction & quantity estimation, Land development & CAD, Applied Mechanics, Engineering Drawing, GIS.
+      description: Civil Construction & Quantity Estimation, Land Development & CAD, Applied Mechanics, Engineering Drawing, GIS, Computer Application.
       note: ''
     - period: 2024 —
       periodNote: '2025'
       title: Civil Draftsperson — Fusion Engineering Services
-      description: Residential construction drawings to Australian standards; Footing planning and Rainwater harvesting design.
+      description: Residential Construction Drawings to Australian Standards; Footing Planning and Rainwater Harvesting Design.
       note: ''
     - period: 2019 —
       periodNote: '2024'
       title: B.E. Civil Engineering — Thapathali Campus, IOE, TU
-      description: |-
-        Final year project: DESIGN OF WATER SUPPLY SCHEME FOR 10000 POPULATION FROM THE 
-        SOURCE TO THE 3KM DISTANCE OF SETTLEMENTS
+      description: 'Final year project: DESIGN OF WATER SUPPLY SCHEME FOR 10000 POPULATION FROM THE SOURCE TO THE 3KM DISTANCE OF SETTLEMENTS'
       note: Prepared a detailed project report.
 expertise:
   show: true
