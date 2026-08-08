@@ -17,7 +17,7 @@ content lives in data files, not code, and the site is generated from them.
 | Content | `content/site.yaml` + `content/projects/*.md` | YAML takes comments, so the file explains itself; one file per project means duplicate-to-add, delete-to-remove |
 | Validation | Zod (`src/lib/site.ts`, `src/content.config.ts`) | A bad value fails the build with a plain-English message instead of shipping a broken page |
 | Editing | Sveltia CMS at `/admin` | Forms, colour pickers, image upload — no text editor needed |
-| Hosting | Netlify (`netlify.toml`) | Push → rebuild → live |
+| Hosting | Cloudflare Pages | Push → rebuild → live; 500 builds/mo and unmetered bandwidth on the free tier |
 
 ## Content model
 
@@ -87,8 +87,11 @@ Theme and `photoTint` toggles confirmed to propagate.
    re-serialises it and drops the explanatory `#` comments. Values are safe.
    Guidance also lives in `EDITING.md`, and the CMS shows its own field hints.
 2. **Remote `/admin` sign-in needs an OAuth client.** GitHub requires a site to
-   identify itself. Until one is set up, `api.netlify.com/auth` returns 404 —
-   see the two options in `EDITING.md`. Local editing needs no setup.
+   identify itself, so the default auth endpoint 404s until one exists. Deploy
+   [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) as a
+   Cloudflare Worker and set `base_url` in `public/admin/config.yml` — same
+   account as the hosting. Local editing needs no setup, and avoids a rebuild
+   per save.
 3. **Two places describe the same data.** `public/admin/config.yml` (forms) and
    the Zod schemas (validation). Adding a field to one without the other means
    it's silently dropped or fails the build.

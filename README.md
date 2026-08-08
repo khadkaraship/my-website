@@ -54,17 +54,19 @@ src/
 
 ## Publishing
 
-Push the repo to GitHub, then connect it to **Netlify** or **Cloudflare Pages**:
+Hosted on **Cloudflare Pages**. Dashboard → Workers & Pages → Create → Pages →
+Connect to Git, pick the repo, then:
 
 - Build command: `npm run build`
-- Publish directory: `dist`
+- Build output directory: `dist`
 
-(`netlify.toml` already sets both.) Every push rebuilds and redeploys the site,
+Nothing in the repo needs configuring — the site is served from the domain root,
+so all internal links work as written. Every push rebuilds and redeploys,
 including saves made from `/admin`.
 
-Two things to update once you have a domain:
+Two things to update once the site is live:
 
-1. `astro.config.mjs` → `SITE_URL`
+1. `astro.config.mjs` → `SITE_URL` (your `*.pages.dev` address or custom domain)
 2. `public/admin/config.yml` → `repo:`
 
 ## Scripts
