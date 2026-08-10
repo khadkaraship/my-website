@@ -3,8 +3,9 @@ name: Chainpur–Jhanjhane–Shreepur Lift Irrigation Project
 type: Irrigation
 place: Hariharpur Gadi RM, Sindhuli
 client: Hints Consult Pvt. Ltd.
+firm: ''
 fy: 2081/82 (2024)
-order: 20
+order: 2
 featured: true
 images:
   cover: /images/Chainpur Jhanjhane IRR.jpg
