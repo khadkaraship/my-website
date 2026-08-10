@@ -3,8 +3,9 @@ name: Kartha-Thotri-Mangalpur Lift Irrigation Project
 type: Irrigation
 place: Dudhauli Municipality, Sindhuli
 client: Kaustuv Engineering Consultancy Pvt. Ltd.
+firm: ''
 fy: 2081/82 (2025)
-order: 999
+order: 3
 featured: false
 images:
   cover: /images/Korthai Sindhluli IRR.jpg
