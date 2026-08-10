@@ -3,8 +3,9 @@ name: 4-Storey Residential Building
 type: Structural
 place: Kalanki, Kathmandu
 client: Freelance
+firm: Freelance
 fy: 2082/83 (2026)
-order: 1
+order: 100
 featured: true
 images:
   cover: /images/Kalanki Building.png
@@ -21,7 +22,6 @@ tools:
   - SAFE
   - AutoCAD
   - MS Office
-firm: Freelance
 ---
 
 <!-- Anything written below the line above appears as extra text on the
