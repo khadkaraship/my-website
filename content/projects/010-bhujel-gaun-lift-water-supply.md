@@ -3,8 +3,9 @@ name: Bhujel Gaun Lift Water Supply Project
 type: Water supply
 place: Bandipur RM, Tanahun
 client: Hints Consult Pvt. Ltd.
+firm: ''
 fy: 2082/83 (2025)
-order: 2
+order: 1
 featured: true
 images:
   cover: /images/Bhujel Gaun WSP.jpg
