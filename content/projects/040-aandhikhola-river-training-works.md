@@ -3,8 +3,9 @@ name: Aandhikhola River Training Works
 type: River training
 place: Bhirkot & Waling, Syangja
 client: Hints Consult Pvt. Ltd.
+firm: ''
 fy: 2080/81 (2024)
-order: 40
+order: 4
 featured: true
 images:
   cover: /images/Aandhi Khola River Training W.jpg
