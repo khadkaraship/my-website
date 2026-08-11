@@ -3,7 +3,7 @@ name: Study for Identification of Reservoir cell as water induced disaster manag
 type: Irrigation
 place: Deukhuri Valley, Dang
 client: Sharma Engineering Consultancy Pvt. Ltd.
-fy: 2082/83
+fy: 2082/83 (2026)
 order: 1
 featured: true
 images:
