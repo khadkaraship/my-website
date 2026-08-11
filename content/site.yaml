@@ -44,7 +44,7 @@ stats:
   items:
     - value: auto
       label: projects delivered
-    - value: '2'
+    - value: '3'
       label: consultancies
     - value: '2'
       label: years teaching
