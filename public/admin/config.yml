@@ -224,7 +224,7 @@ collections:
       - name: type
         label: Category
         widget: select
-        options: [Feasibility Study, Hydropower, Irrigation, River Training, Water supply]
+        options: [Feasibility Study, Hydropower, Irrigation, River Training, Water supply, Structural, Geotechnical]
         hint: Must match one of the filter buttons on the portfolio page.
       - { name: place, label: Location, widget: string, required: false }
       - name: client
