@@ -9,9 +9,7 @@ featured: true
 images:
   cover: /images/Project-5.png
   coverCaption: Reservoir elevation map with proposed dam, embankment, and canal alignment, Deukhuri Valley, Dang.
-  gallery:
-    - image: /images/overall Map.png
-      caption: Location of all the Projects
+  gallery: []
 work:
   - Hydrological Analysis
   - GIS-based terrain and reservoir analysis
