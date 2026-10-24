@@ -75,7 +75,7 @@ const { hero, experience, expertise, selectedWork } = site;
     experience.show && experience.items.length > 0 && (
       <section class="section">
         <p class="eyebrow">
-          {experience.number} — {experience.kicker}
+          {[experience.number, experience.kicker].filter(Boolean).join(' — ')}
         </p>
         <h2 class="section-title">{experience.heading}</h2>
         <div class="timeline">
@@ -106,7 +106,7 @@ const { hero, experience, expertise, selectedWork } = site;
         <hr class="rule" />
         <section class="section section-alt">
           <p class="eyebrow">
-            {expertise.number} — {expertise.kicker}
+            {[expertise.number, expertise.kicker].filter(Boolean).join(' — ')}
           </p>
           <h2 class="section-title">{expertise.heading}</h2>
           <div class="expertise-grid">
@@ -142,7 +142,7 @@ const { hero, experience, expertise, selectedWork } = site;
           <div class="work-head">
             <div>
               <p class="eyebrow">
-                {selectedWork.number} — {selectedWork.kicker}
+                {[selectedWork.number, selectedWork.kicker].filter(Boolean).join(' — ')}
               </p>
               <h2 class="section-title section-title-tight">{selectedWork.heading}</h2>
             </div>

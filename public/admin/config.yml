@@ -126,7 +126,7 @@ collections:
             collapsed: true
             fields:
               - { name: show, label: Show this section?, widget: boolean }
-              - { name: number, label: Section number, widget: string }
+              - { name: number, label: Section number (leave blank to hide), widget: string, required: false }
               - { name: kicker, label: Small label, widget: string }
               - { name: heading, label: Heading, widget: string }
               - name: items
@@ -146,7 +146,7 @@ collections:
             collapsed: true
             fields:
               - { name: show, label: Show this section?, widget: boolean }
-              - { name: number, label: Section number, widget: string }
+              - { name: number, label: Section number (leave blank to hide), widget: string, required: false }
               - { name: kicker, label: Small label, widget: string }
               - { name: heading, label: Heading, widget: string }
               - name: cards
@@ -165,7 +165,7 @@ collections:
             collapsed: true
             fields:
               - { name: show, label: Show this section?, widget: boolean }
-              - { name: number, label: Section number, widget: string }
+              - { name: number, label: Section number (leave blank to hide), widget: string, required: false }
               - { name: kicker, label: Small label, widget: string }
               - { name: heading, label: Heading, widget: string }
               - { name: linkLabel, label: 'Link text (e.g. All projects →)', widget: string }
@@ -186,7 +186,7 @@ collections:
             collapsed: true
             fields:
               - { name: show, label: Show this section?, widget: boolean }
-              - { name: number, label: Section number, widget: string }
+              - { name: number, label: Section number (leave blank to hide), widget: string, required: false }
               - { name: kicker, label: Small label, widget: string }
               - { name: heading, label: Heading, widget: string }
               - { name: text, label: Paragraph, widget: text }

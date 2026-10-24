@@ -79,7 +79,7 @@ const schema = z.object({
   experience: z
     .object({
       show: z.boolean().default(true),
-      number: z.string().default('01'),
+      number: z.string().default(''),
       kicker: z.string().default('Experience'),
       heading: z.string().default(''),
       items: z
@@ -99,7 +99,7 @@ const schema = z.object({
   expertise: z
     .object({
       show: z.boolean().default(true),
-      number: z.string().default('02'),
+      number: z.string().default(''),
       kicker: z.string().default('Expertise'),
       heading: z.string().default(''),
       cards: z.array(z.object({ title: z.string(), description: z.string().default('') })).default([]),
@@ -111,7 +111,7 @@ const schema = z.object({
   selectedWork: z
     .object({
       show: z.boolean().default(true),
-      number: z.string().default('03'),
+      number: z.string().default(''),
       kicker: z.string().default('Selected work'),
       heading: z.string().default(''),
       linkLabel: z.string().default('All projects →'),
@@ -130,7 +130,7 @@ const schema = z.object({
   contact: z
     .object({
       show: z.boolean().default(true),
-      number: z.string().default('04'),
+      number: z.string().default(''),
       kicker: z.string().default('Contact'),
       heading: z.string().default(''),
       text: z.string().default(''),

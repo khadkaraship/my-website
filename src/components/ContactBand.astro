@@ -11,7 +11,7 @@ const telHref = contact.phone.replace(/[^\d+]/g, '');
     <section id="contact" class="contact">
       <div>
         <p class="eyebrow">
-          {contact.number} — {contact.kicker}
+          {[contact.number, contact.kicker].filter(Boolean).join(' — ')}
         </p>
         <h2 class="contact-heading">{contact.heading}</h2>
         <p class="contact-text">{contact.text}</p>
