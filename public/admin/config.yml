@@ -179,7 +179,6 @@ collections:
               - { name: kicker, label: Small label, widget: string }
               - { name: intro, label: Introduction paragraph, widget: text }
               - { name: columns, label: Projects side by side (2–4), widget: number, value_type: int, min: 2, max: 4 }
-              - { name: categories, label: Filter buttons, widget: list, field: { name: category, widget: string } }
 
           - name: contact
             label: '04 — Contact'
@@ -208,6 +207,30 @@ collections:
               - { name: left, label: Left side, widget: string }
               - { name: right, label: Right side, widget: string }
 
+  # ── The portfolio filter buttons ───────────────────────────────────────────
+  - name: categories
+    label: Categories
+    label_singular: Category
+    description: >-
+      The filter buttons on the portfolio page. A button only appears once at
+      least one project uses that category.
+    folder: content/categories
+    create: true
+    delete: true
+    extension: yaml
+    format: yaml
+    slug: '{{name}}'
+    summary: '{{name}}'
+    sortable_fields: [order, name]
+    fields:
+      - name: name
+        label: Category name
+        widget: string
+        hint: >-
+          Renaming? Projects are not updated for you. Open each project that
+          used the old name and pick the new one.
+      - { name: order, label: Button position (lower shows first), widget: number, value_type: int, default: 999 }
+
   # ── One entry per project ──────────────────────────────────────────────────
   - name: projects
     label: Projects
@@ -223,9 +246,12 @@ collections:
       - { name: name, label: Project name, widget: string }
       - name: type
         label: Category
-        widget: select
-        options: [Feasibility Study, Hydropower, Irrigation, River Training, Water supply, Structural, Geotechnical]
-        hint: Must match one of the filter buttons on the portfolio page.
+        widget: relation
+        collection: categories
+        value_field: name
+        search_fields: [name]
+        display_fields: [name]
+        hint: Pick from the Categories list. To add a new one, create it under Categories first.
       - { name: place, label: Location, widget: string, required: false }
       - name: client
         label: Client

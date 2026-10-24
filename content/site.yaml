@@ -120,14 +120,6 @@ portfolio:
   kicker: Portfolio
   intro: Water supply, Irrigation, River training, Hydropower, Geotechnical and Structural design across Nepal.
   columns: 4
-  categories:
-    - Water supply
-    - Irrigation
-    - River training
-    - Structural
-    - Feasibility Study
-    - Hydropower
-    - Geotechnical
 contact:
   show: true
   number: '04'

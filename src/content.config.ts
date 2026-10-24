@@ -44,4 +44,17 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { projects };
+/**
+ * The portfolio filter buttons — one file per category in `content/categories/`.
+ * A project joins a category by using its exact `name` as the project's `type`.
+ */
+const categories = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './content/categories' }),
+  schema: z.object({
+    name: z.string(),
+    /** Position of the button on the portfolio page — lower shows first. */
+    order: z.number().default(999),
+  }),
+});
+
+export const collections = { projects, categories };

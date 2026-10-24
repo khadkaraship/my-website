@@ -124,7 +124,6 @@ const schema = z.object({
       kicker: z.string().default('Portfolio'),
       intro: z.string().default(''),
       columns: z.number().int().min(2).max(4).default(3),
-      categories: z.array(z.string()).default([]),
     })
     .default({}),
 

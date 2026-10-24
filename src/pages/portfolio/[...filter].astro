@@ -3,7 +3,13 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { site } from '../../lib/site';
-import { allProjects, categoriesWithCounts, fyRange } from '../../lib/projects';
+import {
+  allProjects,
+  categoriesWithCounts,
+  fyRange,
+  inCategory,
+  uncategorisedProjects,
+} from '../../lib/projects';
 
 /**
  * Builds `/portfolio` plus one page per category, e.g. `/portfolio/irrigation`.
@@ -12,7 +18,14 @@ import { allProjects, categoriesWithCounts, fyRange } from '../../lib/projects';
  */
 export const getStaticPaths = (async () => {
   const projects = await allProjects();
-  const categories = categoriesWithCounts(projects);
+  const categories = await categoriesWithCounts(projects);
+
+  // Flag it in the build log so a renamed or deleted category gets noticed.
+  for (const p of await uncategorisedProjects(projects)) {
+    console.warn(
+      `[portfolio] "${p.data.name}" has category "${p.data.type}", which is not in content/categories/ — it has no filter button.`,
+    );
+  }
 
   return [
     { params: { filter: undefined }, props: { category: null } },
@@ -30,8 +43,8 @@ interface Props {
 const { category } = Astro.props;
 
 const projects = await allProjects();
-const categories = categoriesWithCounts(projects);
-const shown = category ? projects.filter((p) => p.data.type === category) : projects;
+const categories = await categoriesWithCounts(projects);
+const shown = category ? projects.filter((p) => inCategory(p, category)) : projects;
 
 const heading = category
   ? `${shown.length} ${category.toLowerCase()} ${shown.length === 1 ? 'project' : 'projects'}`

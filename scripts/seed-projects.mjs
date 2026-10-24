@@ -50,7 +50,7 @@ projects.forEach((p, i) => {
 
 name: ${q(p.name)}
 
-# Must match one of the categories in content/site.yaml → portfolio.categories
+# Must match the name of a category in content/categories/
 type: ${q(p.type)}
 
 place: ${q(p.place)}

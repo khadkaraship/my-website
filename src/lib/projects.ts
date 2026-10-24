@@ -43,16 +43,41 @@ export function featuredProjects(projects: Project[]): Project[] {
 }
 
 /**
- * Filter categories for the portfolio page, with a live count each.
- * Categories come from site.yaml; any category with no projects is dropped so
- * the page never shows an empty filter.
+ * Does this project belong to the category? Compared by slug, so "River
+ * Training" and "River training" count as the same thing.
  */
-export function categoriesWithCounts(projects: Project[]) {
-  return site.portfolio.categories
+export function inCategory(project: Project, label: string): boolean {
+  return slugify(project.data.type) === slugify(label);
+}
+
+/** Category names, in the order set by the `order:` field in each file. */
+export async function allCategories(): Promise<string[]> {
+  const entries = await getCollection('categories');
+  return entries
+    .sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name))
+    .map((c) => c.data.name);
+}
+
+/**
+ * Projects whose category was renamed or deleted. They still show under "All",
+ * but no filter button leads to them.
+ */
+export async function uncategorisedProjects(projects: Project[]): Promise<Project[]> {
+  const categories = await allCategories();
+  return projects.filter((p) => !categories.some((label) => inCategory(p, label)));
+}
+
+/**
+ * Filter categories for the portfolio page, with a live count each.
+ * Categories come from `content/categories/`; any category with no projects is
+ * dropped so the page never shows an empty filter.
+ */
+export async function categoriesWithCounts(projects: Project[]) {
+  return (await allCategories())
     .map((label) => ({
       label,
       slug: slugify(label),
-      count: projects.filter((p) => p.data.type === label).length,
+      count: projects.filter((p) => inCategory(p, label)).length,
     }))
     .filter((c) => c.count > 0);
 }

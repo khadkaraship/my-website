@@ -7,6 +7,7 @@ folder: `content/`.
 content/
   site.yaml        ← all the text, colours, contact details, on/off switches
   projects/        ← one file per project
+  categories/      ← one file per portfolio filter button
 public/
   images/          ← your photos go here
   files/           ← your résumé PDF goes here
@@ -73,7 +74,7 @@ Open the files in any plain-text editor (VS Code, TextEdit, Notepad).
 | Add a job to the timeline | `content/site.yaml` → `experience:` → copy a whole `- period:` block and edit it |
 | Change how many projects show on the home page | `content/site.yaml` → `selectedWork:` → `count:` |
 | Change the portfolio layout | `content/site.yaml` → `portfolio:` → `columns:` (2, 3 or 4) |
-| Add a filter button | `content/site.yaml` → `portfolio:` → `categories:` — then use that exact wording as the `type:` in a project file |
+| Add, rename or remove a filter button | See "Categories" below |
 
 ---
 
@@ -94,7 +95,7 @@ number inside the file.
 
 ```yaml
 name: 'Tinau River Training Works'
-type: 'River training'      # must match a filter button in site.yaml
+type: 'River training'      # must match a category name in content/categories/
 place: 'Butwal, Rupandehi'
 client: 'Butwal Sub-Metropolitan City'   # leave as '' to hide this row
 firm: 'Hints Consult Pvt. Ltd.'          # leave as '' to hide this row
@@ -117,6 +118,43 @@ tools:
 
 Anything you type *below* the second `---` line becomes extra paragraphs on the
 project page. Leave it empty and the page simply skips it.
+
+---
+
+## Categories
+
+Categories are the filter buttons on the portfolio page (Water supply,
+Irrigation, …). Each one is a small file in `content/categories/`.
+
+**In the visual editor:** click **Categories** in the left menu.
+
+- **Add one:** click **New Category**, type the name, save. It now appears in
+  the Category dropdown on every project.
+- **Remove one:** open it and click **Delete**.
+- **Rename one:** change the name and save, then open each project that used
+  the old name and pick the new one from its Category dropdown. Projects are
+  not updated for you.
+- **Reorder the buttons:** change **Button position**. Lower numbers show first.
+
+**In the text files:** copy any file in `content/categories/`, rename it, and
+change the values inside:
+
+```yaml
+name: 'Bridge design'
+order: 8        # position of the button — lower shows first
+```
+
+To remove one, delete its file.
+
+Good to know:
+
+- A button only appears once at least one project uses that category, so
+  you can add categories before you have projects for them.
+- A project whose category was deleted or renamed still shows under **All**.
+  It just has no filter button until you give it a category that exists. The
+  build log warns about these projects by name.
+- Capital letters don't matter when matching: "River Training" and
+  "River training" count as the same category.
 
 ---
 
