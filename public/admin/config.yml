@@ -37,6 +37,15 @@ collections:
           - { name: brand, label: Name in the top-left corner, widget: string }
           - { name: role, label: Job title, widget: string }
           - { name: tagline, label: One-line summary, widget: text }
+          - name: resume
+            label: Résumé (PDF)
+            widget: file
+            required: false
+            media_folder: /public/files
+            public_folder: /files
+            hint: >-
+              Upload a new PDF here to replace the résumé. Every button whose
+              link is set to "resume" opens this file.
 
           - name: theme
             label: Colours & fonts
@@ -74,14 +83,14 @@ collections:
                 widget: list
                 fields:
                   - { name: label, label: Text, widget: string }
-                  - { name: href, label: Link, widget: string }
+                  - { name: href, label: Link, widget: string, hint: 'Write "resume" to link to your uploaded résumé.' }
               - name: button
                 label: Button on the right
                 widget: object
                 fields:
                   - { name: show, label: Show it?, widget: boolean }
                   - { name: label, label: Text, widget: string }
-                  - { name: href, label: Link, widget: string }
+                  - { name: href, label: Link, widget: string, hint: 'Write "resume" to link to your uploaded résumé.' }
 
           - name: hero
             label: Top of the home page
@@ -96,14 +105,14 @@ collections:
                 fields:
                   - { name: show, label: Show it?, widget: boolean }
                   - { name: label, label: Text, widget: string }
-                  - { name: href, label: Link, widget: string }
+                  - { name: href, label: Link, widget: string, hint: 'Write "resume" to link to your uploaded résumé.' }
               - name: secondaryButton
                 label: Second button
                 widget: object
                 fields:
                   - { name: show, label: Show it?, widget: boolean }
                   - { name: label, label: Text, widget: string }
-                  - { name: href, label: Link, widget: string }
+                  - { name: href, label: Link, widget: string, hint: 'Write "resume" to link to your uploaded résumé.' }
               - { name: portrait, label: Your photo, widget: image, required: false }
               - { name: portraitAlt, label: Photo description, widget: string, required: false }
 
@@ -227,7 +236,7 @@ collections:
                 widget: list
                 fields:
                   - { name: label, label: Text, widget: string }
-                  - { name: href, label: Link, widget: string }
+                  - { name: href, label: Link, widget: string, hint: 'Write "resume" to link to your uploaded résumé.' }
 
           - name: footer
             label: Footer

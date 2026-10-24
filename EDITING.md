@@ -190,8 +190,15 @@ Notes:
 
 ## Adding your résumé
 
-Save the PDF as `public/files/resume.pdf`. The two "Résumé" buttons already
-point there.
+**In the visual editor:** Site settings → **Résumé (PDF)** → upload the new
+file → Save. Every button whose link is set to `resume` opens it, whatever the
+file is called.
+
+**By hand:** overwrite `public/files/resume.pdf` with the new file, keeping that
+name.
+
+To make any other button or contact link open the résumé, set its link to
+`resume`.
 
 ---
 

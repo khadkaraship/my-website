@@ -25,6 +25,8 @@ const schema = z.object({
   brand: z.string().default('YOUR NAME'),
   role: z.string().default(''),
   tagline: z.string().default(''),
+  /** The uploaded résumé. Any button or link set to `resume` points here. */
+  resume: z.string().default('/files/resume.pdf'),
 
   theme: z
     .object({
@@ -185,6 +187,27 @@ if (!parsed.success) {
       `Open content/site.yaml, fix the setting(s) listed above, and save.\n`,
   );
 }
+
+/**
+ * `href: resume` anywhere in site.yaml means "link to the uploaded résumé", so
+ * uploading a new file with a different name never breaks the buttons.
+ */
+function resolveResumeLinks(value: unknown, resume: string): void {
+  if (Array.isArray(value)) {
+    value.forEach((item) => resolveResumeLinks(item, resume));
+  } else if (value && typeof value === 'object') {
+    const obj = value as Record<string, unknown>;
+    for (const [key, child] of Object.entries(obj)) {
+      if (key === 'href' && typeof child === 'string' && child.trim().toLowerCase() === 'resume') {
+        obj[key] = resume;
+      } else {
+        resolveResumeLinks(child, resume);
+      }
+    }
+  }
+}
+
+resolveResumeLinks(parsed.data, parsed.data.resume);
 
 export const site = parsed.data;
 export type Site = typeof site;
