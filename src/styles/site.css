@@ -161,6 +161,17 @@ a:hover { color: var(--color-accent-900); }
 }
 .timeline-note { color: var(--color-neutral-600); }
 
+/* ── publications (reuse the timeline) ──────────────────────────────────── */
+.pub-meta {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--color-neutral-700);
+  font-style: italic;
+  margin: 6px 0 0;
+}
+.pub-links { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; }
+.pub-links .btn { padding: 8px 16px; font-size: 13px; text-decoration: none; }
+
 /* ── expertise ──────────────────────────────────────────────────────────── */
 .expertise-grid {
   display: grid;

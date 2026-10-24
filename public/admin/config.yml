@@ -171,6 +171,36 @@ collections:
               - { name: linkLabel, label: 'Link text (e.g. All projects →)', widget: string }
               - { name: count, label: How many projects to show, widget: number, value_type: int, min: 1, max: 12 }
 
+          - name: publications
+            label: Publications
+            widget: object
+            collapsed: true
+            fields:
+              - { name: show, label: Show this section?, widget: boolean, default: true }
+              - { name: number, label: Section number (leave blank to hide), widget: string, required: false }
+              - { name: kicker, label: Small label, widget: string }
+              - { name: heading, label: Heading, widget: string, required: false }
+              - name: items
+                label: Papers
+                widget: list
+                required: false
+                summary: '{{fields.title}}'
+                hint: The section only appears on the site once at least one paper is added.
+                fields:
+                  - { name: title, label: Paper title, widget: string }
+                  - { name: authors, label: Authors, widget: string, required: false, hint: 'e.g. R. Khadka, S. Sharma' }
+                  - { name: venue, label: Journal or conference, widget: string, required: false, hint: 'e.g. Journal of Engineering Issues and Solutions, Vol. 3' }
+                  - { name: year, label: Year, widget: string, required: false }
+                  - { name: summary, label: Short summary, widget: text, required: false }
+                  - { name: link, label: Link to the paper (DOI or journal page), widget: string, required: false }
+                  - { name: linkLabel, label: Link button text, widget: string, required: false, default: Read paper }
+                  - name: pdf
+                    label: PDF copy (optional)
+                    widget: file
+                    required: false
+                    media_folder: /public/files
+                    public_folder: /files
+
           - name: portfolio
             label: Portfolio page
             widget: object

@@ -14,7 +14,7 @@ const stats = site.stats.items.map((item) => ({
   value: String(item.value).toLowerCase() === 'auto' ? String(projects.length) : String(item.value),
 }));
 
-const { hero, experience, expertise, selectedWork } = site;
+const { hero, experience, expertise, selectedWork, publications } = site;
 ---
 
 <Base>
@@ -156,6 +156,51 @@ const { hero, experience, expertise, selectedWork } = site;
           >
             {featured.map((project) => (
               <ProjectCard project={project} />
+            ))}
+          </div>
+        </section>
+      </>
+    )
+  }
+
+  <!-- ── Publications ─────────────────────────────────────────────────── -->
+  {
+    publications.show && publications.items.length > 0 && (
+      <>
+        <hr class="rule" />
+        <section class="section" id="publications">
+          <p class="eyebrow">
+            {[publications.number, publications.kicker].filter(Boolean).join(' — ')}
+          </p>
+          {publications.heading && <h2 class="section-title">{publications.heading}</h2>}
+          <div class="timeline">
+            {publications.items.map((paper) => (
+              <>
+                <div class="timeline-period">{paper.year}</div>
+                <div class="timeline-body">
+                  <div class="timeline-title">{paper.title}</div>
+                  {(paper.authors || paper.venue) && (
+                    <p class="pub-meta">
+                      {[paper.authors, paper.venue].filter(Boolean).join(' · ')}
+                    </p>
+                  )}
+                  {paper.summary && <p class="timeline-desc">{paper.summary}</p>}
+                  {(paper.link || paper.pdf) && (
+                    <p class="pub-links">
+                      {paper.link && (
+                        <a class="btn btn-secondary" href={paper.link} target="_blank" rel="noopener">
+                          {paper.linkLabel}
+                        </a>
+                      )}
+                      {paper.pdf && (
+                        <a class="btn btn-secondary" href={paper.pdf} target="_blank" rel="noopener">
+                          PDF
+                        </a>
+                      )}
+                    </p>
+                  )}
+                </div>
+              </>
             ))}
           </div>
         </section>

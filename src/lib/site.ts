@@ -119,6 +119,32 @@ const schema = z.object({
     })
     .default({}),
 
+  publications: z
+    .object({
+      show: z.boolean().default(true),
+      number: z.string().default(''),
+      kicker: z.string().default('Publications'),
+      heading: z.string().default(''),
+      items: z
+        .array(
+          z.object({
+            title: z.string(),
+            authors: z.string().default(''),
+            /** The journal, conference or proceedings it appeared in. */
+            venue: z.string().default(''),
+            year: z.union([z.string(), z.number()]).transform(String).default(''),
+            summary: z.string().default(''),
+            /** DOI or journal page. */
+            link: z.string().default(''),
+            linkLabel: z.string().default('Read paper'),
+            /** An uploaded copy, e.g. /files/paper.pdf. */
+            pdf: z.string().default(''),
+          }),
+        )
+        .default([]),
+    })
+    .default({}),
+
   portfolio: z
     .object({
       kicker: z.string().default('Portfolio'),

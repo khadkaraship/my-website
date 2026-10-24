@@ -72,6 +72,7 @@ Open the files in any plain-text editor (VS Code, TextEdit, Notepad).
 | Change the font | `content/site.yaml` → `theme:` → `headingFont` / `bodyFont`. Use any name from [fonts.google.com](https://fonts.google.com), spelled exactly as Google spells it |
 | Hide a whole section | Find its `show: true` and change it to `show: false` |
 | Add a job to the timeline | `content/site.yaml` → `experience:` → copy a whole `- period:` block and edit it |
+| Add a published paper | Visual editor → Site settings → **Publications** → Add. Or `content/site.yaml` → `publications:` → `items:`. The section appears on the home page once there is at least one paper. A PDF copy goes in `public/files/` |
 | Change how many projects show on the home page | `content/site.yaml` → `selectedWork:` → `count:` |
 | Change the portfolio layout | `content/site.yaml` → `portfolio:` → `columns:` (2, 3 or 4) |
 | Add, rename or remove a filter button | See "Categories" below |

@@ -116,6 +116,20 @@ selectedWork:
   heading: Projects That Define My Journey
   linkLabel: All projects →
   count: 4
+publications:
+  show: true
+  number: ''
+  kicker: Publications
+  heading: Published research
+  items:
+    - title: 'Navigating Road Safety: Factors, Legislations, Safety Audits, Technological Advances and Challenges in Nepal'
+      authors: Sakar Hada, Raship Khadka
+      venue: KTFT Journal, Vol. 4, No. 1, pp. 78–92
+      year: '2024'
+      summary: A review of why Nepal's roads are becoming more dangerous — the gaps in road-safety legislation (the Road Safety Bill pending since 2017), the low priority given to road safety audits, and the challenges of terrain and cost — with a case for affordable hardware and software to improve safety, especially as the Kathmandu–Terai Fast Track develops.
+      link: https://doi.org/10.3126/ktftj.v4i1.70364
+      linkLabel: Read paper (DOI)
+      pdf: ''
 portfolio:
   kicker: Portfolio
   intro: Water supply, Irrigation, River training, Hydropower, Geotechnical and Structural design across Nepal.
